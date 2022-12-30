@@ -3,13 +3,21 @@ import { getMovies } from "../src/services/fakeMovieService";
 import Like from "./component/like";
 import Pagination from "./component/pagination";
 import { paginate } from "./utils/paginate";
+import ListGroup from "./component/listGroup";
+import { getGenres } from "./services/fakeGenreService";
 
 class Movies extends Component {
   state = {
-    movies: getMovies(),
+    movies: [],
+    genres: [],
     pageSize: 5,
     currentPage: 1
   };
+
+  componentDidMount(){
+    this.setState({movies: getMovies(), genres: getGenres() })
+  }
+
 
   handleDelete = (movie) => {
     const movies = this.state.movies.filter((m) => m._id !== movie._id);
@@ -27,6 +35,9 @@ class Movies extends Component {
     // console.log(page);
     this.setState ({currentPage: page})
   };
+  handleGenreSelect = genre => {
+    console.log(genre)
+  }
 
   render() {
     // if(this.state.movies.length === 0) return <p>There is no movies in the database</p>
@@ -35,7 +46,11 @@ class Movies extends Component {
     if (count === 0) return <p>There is no movies in the database</p>;
     const movies = paginate(allMovies, currentPage, pageSize)
     return (
-      <div>
+      <div className="row">
+        <div className="col-2">
+          <ListGroup item={this.state.genres} onItemSelect = {this.handleGenreSelect}/>
+        </div>
+        <div className="col">
         <p>Showing {count} movies in the database</p>
         <table className="table">
           <thead>
@@ -81,6 +96,8 @@ class Movies extends Component {
           currentPage={currentPage}
           onPageChange={this.handlePageChange}
         />
+        </div>
+        
       </div>
     );
   }
