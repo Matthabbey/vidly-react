@@ -33,7 +33,7 @@ class Movies extends Component {
     this.setState({ movies });
   };
 
-  handlePageChange = (page) => {
+  handlePageChange = page => {
     // console.log(page);
     this.setState({ currentPage: page });
   };
