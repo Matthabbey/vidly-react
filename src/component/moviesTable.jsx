@@ -8,7 +8,7 @@ class MoviesTable extends Component {
         {path: 'genre.name', label: 'Genre'},
         {path: 'numberInStock', label: 'Stock'},
         {path: 'dailyRentalRate', label: 'Rate'},
-        { key: "likes"},
+        { key: "like"},
         {key: "delete" }
     ]
     raiseSort = path =>{
@@ -36,12 +36,12 @@ class MoviesTable extends Component {
           <td>
             <Like
               liked={movie.liked}
-              onClick={() => this.onLike(movie)}
+              onClick={() => onLike(movie)}
             />
           </td>
           <td>
             <button
-              onClick={() => this.onDelete(movie)}
+              onClick={() => onDelete(movie)}
               className="btn btn-danger btn-sm"
             >
               DELETE

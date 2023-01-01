@@ -15,7 +15,9 @@ class Like extends Component {
         aria-hidden="true"
       ></i>
     );
-  }
+    
+    }
+    
 }
 
 export default Like;
