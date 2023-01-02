@@ -35,7 +35,7 @@ class MoviesTable extends Component {
     this.props.onSort(sortColumn);
   };
   render() {
-    const { movies, onDelete, onLike, sortColumn, onSort } = this.props;
+    const { movies, sortColumn, onSort } = this.props;
     return (
       <table className="table">
         <TableHeader
