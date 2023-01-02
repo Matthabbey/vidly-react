@@ -32,7 +32,7 @@ Pagination.propTypes = {
   itemsCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   onPageChange: PropTypes.number,
-  currentPage: PropTypes.func
+  currentPage: PropTypes.func,
 };
 
 export default Pagination;
